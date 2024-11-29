@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
     Egocentirc:
-      runs-on: ubuntu-lates
+      runs-on: ubuntu-latest
       steps:
         - name: Cloning Repository
           uses: actions/checkout@v4
