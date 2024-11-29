@@ -19,11 +19,12 @@ jobs:
           run: |
              if ! grep -q "Francesco Turini" README.md; then
                echo "README.md does not contain the required name. Adding it ..."
-               exit 1
                sed -i '2iBy: Francesco Turini' README.md
                git config --global user.name "GitHub Action"
                git config --global user.email "action@github.com"
                git add README.md
                git commit -m "Add 'Francesco Turini' to README.md"
                git push
+             else
+              echo "✅ 'Francesco Turini' is already in README.md."
              fi
