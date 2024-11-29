@@ -28,9 +28,34 @@ jobs:
              fi
     
     DitchOverleaf:
-      runs-on: ubuntu-lates
+      runs-on: ubuntu-latest
+      env:
+        DIR: RawTex
+        FILE: RawTex
+
       steps:
-        - uses: actions/checkout@v2
+
+        - name: Cloning Repository
+          uses: actions/checkout@v2
+
         - name: Load latex compiler
+          uses: xu-cheng/texlive-action@v2
+          with:
+            run: |
+              cd ${{ env.DIR }}
+              pdflatex ${{ env.FILE }}
+              bibtex ${{ env.FILE }}
+              pdflatex ${{ env.FILE }}
+              pdflatex ${{ env.FILE }}
+        
+        - name: Save pdf as artifact
           run: |
-             echo "ciao"
+            echo 'Creating pdf'
+            mkdir -p artifacts
+            mv ${{ env.DIR }}/${{ env.FILE }}.pdf ./artifacts/
+
+        - name: Upload pdf as artifact
+          uses: actions/upload-artifact@v4
+          with:
+            name: ${{ env.FILE }}.pdf
+            path: ./artifacts
