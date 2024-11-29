@@ -44,13 +44,13 @@ jobs:
             run: |
               cd ${{ env.DIR }}
               pdflatex ${{ env.FILE }}
-              bibtex ${{ env.FILE }}
+              biber ${{ env.FILE }}
               pdflatex ${{ env.FILE }}
               pdflatex ${{ env.FILE }}
+              echo 'Pdf created'
         
         - name: move pdf to artifact
           run: |
-            echo 'Creating pdf'
             mkdir -p artifacts
             mv ${{ env.DIR }}/${{ env.FILE }}.pdf ./artifacts/
 
