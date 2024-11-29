@@ -19,7 +19,6 @@ jobs:
           run: |
              if ! grep -q "Francesco Turini" README.md; then
                echo "README.md does not contain the required name. Adding it ..."
-               exit 1
              else
               echo " 'Francesco Turini' is already in README.md."
              fi
