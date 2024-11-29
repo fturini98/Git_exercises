@@ -26,3 +26,11 @@ jobs:
               else
               echo " 'Francesco Turini' is already in README.md."
              fi
+    
+    DitchOverleaf:
+      runs-on: ubuntu-lates
+      steps:
+        - uses: actions/checkout@v2
+        - name: Load latex compiler
+          run: |
+             echo "ciao"
