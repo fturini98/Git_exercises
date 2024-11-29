@@ -1,5 +1,5 @@
 name: Lesson6
-run-name: ${{ github.actor }} is checking the name in read me and building te pdf
+run-name:  Checking the name in README.md and building the pdf
 on:
   push:
     branches:
