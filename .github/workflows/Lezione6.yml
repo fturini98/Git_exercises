@@ -30,8 +30,8 @@ jobs:
     DitchOverleaf:
       runs-on: ubuntu-latest
       env:
-        DIR: Links
-        FILE: draft
+        DIR: RawTex
+        FILE: main
 
       steps:
 
