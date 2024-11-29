@@ -1,6 +1,9 @@
 name: Lesson6
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
+run-name: ${{ github.actor }} is checking the name in read me and building te pdf
+on:
+  push:
+    branches:
+      - main
 
 jobs:
     Egocentirc:
@@ -11,4 +14,15 @@ jobs:
         - name: Showing the files
           run: |
            ls ${{ github.workspace }}
-        
+        - name: Verify and fix README.md
+          id: check-name
+          run: |
+             if ! grep -q "Francesco Turini" README.md; then
+               echo "README.md does not contain the required name. Adding it ..."
+               exit 1
+               sed -i '2iBy: Francesco Turini' README.md
+               git config --global user.name "GitHub Action"
+               git config --global user.email "action@github.com"
+               git add README.md
+               git commit -m "Add 'Francesco Turini' to README.md"
+               git push
