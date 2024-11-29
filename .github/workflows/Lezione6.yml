@@ -14,17 +14,12 @@ jobs:
         - name: Showing the files
           run: |
            ls ${{ github.workspace }}
-        - name: Verify and fix README.md
+        - name: Verify README.md
           id: check-name
           run: |
              if ! grep -q "Francesco Turini" README.md; then
                echo "README.md does not contain the required name. Adding it ..."
-               sed -i '2iBy: Francesco Turini' README.md
-               git config --global user.name "GitHub Action"
-               git config --global user.email "action@github.com"
-               git add README.md
-               git commit -m "Add 'Francesco Turini' to README.md"
-               git push
+               exit 1
              else
-              echo "✅ 'Francesco Turini' is already in README.md."
+              echo " 'Francesco Turini' is already in README.md."
              fi
