@@ -26,3 +26,36 @@ jobs:
               else
               echo " 'Francesco Turini' is already in README.md."
              fi
+    
+    DitchOverleaf:
+      runs-on: ubuntu-latest
+      env:
+        DIR: RawTex
+        FILE: main
+
+      steps:
+
+        - name: Cloning Repository
+          uses: actions/checkout@v2
+        
+        - name: Load latex compiler and compile
+          uses: xu-cheng/texlive-action@v2
+          with:
+            run: |
+              cd ${{ env.DIR }}
+              pdflatex ${{ env.FILE }}
+              biber ${{ env.FILE }}
+              pdflatex ${{ env.FILE }}
+              pdflatex ${{ env.FILE }}
+              echo 'Pdf created'
+        
+        - name: move pdf to artifact
+          run: |
+            mkdir -p artifacts
+            mv ${{ env.DIR }}/${{ env.FILE }}.pdf ./artifacts/
+
+        - name: Upload pdf as artifact
+          uses: actions/upload-artifact@v4
+          with:
+            name: ${{ env.FILE }}.pdf
+            path: ./artifacts

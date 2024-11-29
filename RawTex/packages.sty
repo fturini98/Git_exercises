@@ -1,0 +1,61 @@
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+
+%\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage[colorlinks=true, linkcolor=black , citecolor=black , urlcolor=black]{hyperref}
+
+\usepackage[Conny]{fncychap}
+
+
+%Style of header and foot of pages
+%---------------------------------
+\usepackage{fancyhdr}
+\setlength{\headheight}{16pt}
+\pagestyle{plain}%You must call fancy this to activate the style
+\fancyhf{} % Clear all header and footer fields
+\fancyhead[C]{\leftmark} % Display section name in the center of the header
+\fancyfoot[C]{\thepage} % Display page number in the center of the footer
+
+
+
+
+%For forcing figures in place
+%----------------------------
+\usepackage{float}
+
+%per parti di codice
+%\usepackage{minted}
+
+%For use enquote
+%----------------------------
+\usepackage{csquotes}
+
+%For enfases equation
+%-------------------
+\usepackage{tcolorbox}
+
+\newcommand{\enfase}[1]{%
+    \begin{tcolorbox}[colback=blue!10!white,colframe=blue!60!black]
+    #1
+    \end{tcolorbox}%
+}
+
+%Bibliography style
+%------------------
+\usepackage[backend=biber, style=numeric, sorting=ynt]{biblatex}
+
+%Acronimi
+%\usepackage[nonumberlist]{glossaries}
+%\usepackage[automake]{glossaries-extra}
+
+%footnote, serve a forzarle tutte nella stessa pagina
+\usepackage{footnotehyper}
+
+%serve per i braket
+\usepackage{physics}
+
+%per il cinese
+\usepackage{CJK}
+

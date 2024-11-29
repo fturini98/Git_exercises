@@ -1,0 +1,41 @@
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc} % Per migliorare la qualità della visualizzazione dei caratteri
+\usepackage[utf8]{inputenc} % Per l'input di caratteri UTF-8
+
+% Useful packages
+\usepackage{packages}
+
+\setcounter{tocdepth}{4}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[top=1cm,bottom=1cm,left=1.5cm,right=1.5cm,marginparwidth=0cm,bindingoffset=1.0cm]{geometry}
+
+\usepackage[fontsize=10pt]{scrextend} %font dimension
+\raggedbottom% Leave space if the page is incomplete
+
+
+\addbibresource{bibliography.bib}
+
+
+%per le footnote
+\interfootnotelinepenalty=10000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Simple latex file}
+\author{Francesco Turini}
+\date{\today}
+
+
+\begin{document}
+\maketitle
+
+
+Here the main latex document \cite{test}
+\printbibliography
+
+\end{document}
