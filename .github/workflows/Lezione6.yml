@@ -30,15 +30,30 @@ jobs:
     DitchOverleaf:
       runs-on: ubuntu-latest
       env:
-        DIR: RawTex
-        FILE: RawTex
+        DIR: Links
+        FILE: main
 
       steps:
 
         - name: Cloning Repository
           uses: actions/checkout@v2
+        
+        - name: Create symbolic link for main.tex
+          run: |
+            cd ${{ env.DIR }}
+            if [ ! -f .symlink ]; then
+              echo "Errore: Il file .symlink non esiste."
+              exit 1
+            fi
+            TARGET=$(cat .symlink)  # Legge il percorso del file target
+            if [ ! -f "$TARGET" ]; then
+              echo "Errore: Il file target '$TARGET' non esiste."
+              exit 1
+            fi
+            ln -sf "$TARGET" main.tex  # Crea il symbolic link chiamato main.tex
+            echo "Symbolic link creato: main.tex -> $TARGET"
 
-        - name: Load latex compiler
+        - name: Load latex compiler and compile
           uses: xu-cheng/texlive-action@v2
           with:
             run: |
