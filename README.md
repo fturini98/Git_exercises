@@ -1,5 +1,5 @@
 # Git exercises
-***by: Francesco Turini***
+***by: ***
 
 Git Exercises from the Bicocca Courses
 
