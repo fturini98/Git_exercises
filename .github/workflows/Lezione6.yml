@@ -1,0 +1,14 @@
+name: Lesson6
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
+
+jobs:
+    Egocentirc:
+      runs-on: ubuntu-lates
+      steps:
+        - name: Cloning Repository
+          uses: actions/checkout@v4
+        - name: Showing the files
+          run: |
+           ls ${{ github.workspace }}
+        
