@@ -26,3 +26,4 @@ jobs:
                git add README.md
                git commit -m "Add 'Francesco Turini' to README.md"
                git push
+             fi
